@@ -11,14 +11,27 @@ url = "https://selenium-python.readthedocs.io/locating-elements.html#locating-el
 driver = webdriver.Chrome()
 driver.get(url)
 
-titles = driver.find_elements(By.CLASS_NAME, 'section')
+# titles = driver.find_elements(By.CLASS_NAME, 'section')
 
-list_of_titles = []
+# list_of_titles = []
 
-for title in titles:
-    header = title.find_element(By.TAG_NAME, 'h2')
-    list_of_titles.append(header.text)
+# for title in titles:
+#     header = title.find_element(By.TAG_NAME, 'h2')
+#     list_of_titles.append(header.text)
 
 
-print(list_of_titles)
+# print(list_of_titles)
+
+
+link = driver.find_element(By.LINK_TEXT, '1. Installation')
+link.click()
+
+try:
+    second_link = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.LINK_TEXT, 'virtualenv'))
+    )
+    second_link.click()
+except:
+    driver.quit()
+
 
