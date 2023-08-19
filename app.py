@@ -22,11 +22,3 @@ for title in titles:
 
 print(list_of_titles)
 
-# try:
-#     main = WebDriverWait(driver, 10).until(
-#         EC.presence_of_element_located((By.ID, 'root'))
-#     )
-    
-#     print(main.text)
-# finally:
-#     driver.quit()
